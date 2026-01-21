@@ -1,0 +1,17 @@
+{
+        "ime" : "Tomislav",
+        "prezime" : "Šuk",
+        "godine" : 35,
+        "vozacka" : true,
+        "vjestine" : [
+            "HTML", 
+            "CSS", 
+            "JavaScript", 
+            "React"
+        ],
+        "adresa" : {
+            "ulica" : "Sortina 1D",
+            "grad" : "Zagreb",
+            "pbroj" : 10000
+        }
+}

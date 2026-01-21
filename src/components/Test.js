@@ -1,6 +1,18 @@
 import "./Test.css";
 
-const Test = () => {
+
+// Neki komentar u jednoj liniji
+
+
+const Test = () => { 
+
+  /*
+  Ovo je komentar
+  koji ide u  više linija.
+  Sve dok ga ne zatvorim,
+  opet koristeći 
+  */
+
   return (
     <>
         <div className="container">

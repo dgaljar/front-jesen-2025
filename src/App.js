@@ -11,6 +11,9 @@ import Onama from "./pages/Onama";
 import Usluge from "./pages/Usluge";
 import Kontakt from "./pages/Kontakt";
 
+import Profil from "./components/zadaci/Profil";
+import Korisnici from "./components/zadaci/Korisnici";
+
 
 function App() {
   return (
@@ -23,6 +26,13 @@ function App() {
         <Route path="/o-nama" element={<Onama />} />
         <Route path="/usluge" element={<Usluge />} />
         <Route path="/kontakt" element={<Kontakt />} />
+
+
+        <Route path="/profil" element={<Profil />} />
+        <Route path="/korisnici" element={<Korisnici />} />
+
+
+
       </Routes>
       <Footer />
     </BrowserRouter>
