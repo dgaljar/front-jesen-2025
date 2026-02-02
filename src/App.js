@@ -32,16 +32,12 @@ function App() {
         <Route path="/kontakt" element={<Kontakt />} />
         <Route path="/kategorije" element={<Kategorije />} />
 
-
         <Route path="/lokali" element={<Lokali />} />
         <Route path="/lokal/:slug" element={<LokaliSingle />} />
-
 
         <Route path="/profil" element={<Profil />} />
         <Route path="/korisnici" element={<Korisnici />} />
         <Route path="/tecaj" element={<Tecaj />} />
-
-
 
       </Routes>
       <Footer />

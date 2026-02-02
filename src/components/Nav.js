@@ -53,6 +53,11 @@ const Nav = () => {
                   Kontakt
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link text-end" to="/lokali">
+                  Lokali
+                </Link>
+              </li>
             </ul>
 
             <ul className="navbar-nav ms-auto align-items-center">

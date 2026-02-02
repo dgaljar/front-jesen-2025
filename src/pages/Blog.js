@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import "./Blog.css";
+import ReactPaginate from "react-paginate";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -13,6 +15,9 @@ const Blog = () => {
   const [authors, setAuthors] = useState([]);
   const [selectedAuthor, setSelectedAuthor] = useState("");
 
+  const [currentPage, setCurrentPage] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+ 
   useEffect(() => {
 
     fetch(
@@ -30,8 +35,6 @@ const Blog = () => {
       } 
     )
 
-
-
     }, []);
 
   
@@ -39,19 +42,26 @@ const Blog = () => {
   useEffect(() => {
     setLoading(true);
 
-    let url = "https://front2.edukacija.online/backend/wp-json/wp/v2/posts?_embed";
+    const per_page = 6
+
+    let url = `https://front2.edukacija.online/backend/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${currentPage + 1}`; 
     
     if(selectedCategory) url += "&categories=" + selectedCategory;
     if(selectedAuthor) url += "&author=" + selectedAuthor;
 
 
     fetch(url)
-      .then((response) => response.json())
+      .then((response) => {
+        const totalPages = response.headers.get("X-WP-TotalPages");
+        setPageCount(Number(totalPages))
+        return response.json()
+      })
       .then((data) => {
         setPosts(data);
       })
       .finally(() => setLoading(false));
-  }, [selectedCategory, selectedAuthor]);
+  }, [selectedCategory, selectedAuthor, currentPage]);
+
 
   return (
     <>
@@ -61,10 +71,11 @@ const Blog = () => {
           <h1>Blog</h1>
 
           <div className="row mb-4 mt-5">
-              <div class="col-12">
+              <div class="col-12 d-flex gap-1 mb-2">
                   {
                     categories.map((category) => (
                      <button 
+                      className="btn btn-dark text-light"
                       key={category.id} 
                       onClick={() => setSelectedCategory(category.id)}>
                         {category.name}
@@ -121,6 +132,27 @@ const Blog = () => {
               );
             })}
           </div>
+          <ReactPaginate 
+            previousLabel={"prev"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            pageCount={pageCount}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={2}
+            onPageChange={(e) => {
+              setCurrentPage(e.selected)
+              setPosts([])
+              ScrollToTop()
+            }}
+            containerClassName={"pagination"}
+            pageClassName={"page-item"}
+            pageLinkClassName={"page-link"}
+            previousClassName={"page-item"}
+            nextClassName={"page-item"}
+            previousLinkClassName={"page-link"}
+            nextLinkClassName={"page-link"}
+            activeClassName={"active"}
+          />
         </div>
       </div>
     </>
