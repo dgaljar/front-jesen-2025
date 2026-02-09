@@ -17,6 +17,8 @@ import Profil from "./components/zadaci/Profil";
 import Korisnici from "./components/zadaci/Korisnici";
 import Tecaj from "./components/zadaci/Tecaj";
 import Kategorije from "./pages/Kategorije";
+import SignIn from "./pages/SignIn";
+
 
 
 function App() {
@@ -32,14 +34,14 @@ function App() {
         <Route path="/kontakt" element={<Kontakt />} />
         <Route path="/kategorije" element={<Kategorije />} />
 
-
         <Route path="/lokali" element={<Lokali />} />
         <Route path="/lokal/:slug" element={<LokaliSingle />} />
-
 
         <Route path="/profil" element={<Profil />} />
         <Route path="/korisnici" element={<Korisnici />} />
         <Route path="/tecaj" element={<Tecaj />} />
+
+        <Route path="/signin" element={<SignIn />} />
 
 
 
