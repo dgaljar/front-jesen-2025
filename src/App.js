@@ -18,6 +18,7 @@ import Korisnici from "./components/zadaci/Korisnici";
 import Tecaj from "./components/zadaci/Tecaj";
 import Kategorije from "./pages/Kategorije";
 import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 
 
@@ -42,6 +43,7 @@ function App() {
         <Route path="/tecaj" element={<Tecaj />} />
 
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
 
 
 
