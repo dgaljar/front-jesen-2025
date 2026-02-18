@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import Author from "../components/Author";
 
+const BASE_URL = process.env.REACT_APP_API_URL
+
 const BlogSingle = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
 
   useEffect(() => {
     fetch(
-      `https://front2.edukacija.online/backend/wp-json/wp/v2/posts?slug=${slug}&_embed`,
+      `${BASE_URL}v2/posts?slug=${slug}&_embed`,
     )
       .then((response) => response.json())
       .then((data) => setPost(data[0]));

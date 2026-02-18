@@ -5,6 +5,8 @@ import ReactPaginate from "react-paginate";
 import ScrollToTop from "../components/ScrollToTop";
 import BlogPost from "../components/BlogPost";
 
+const BASE_URL = process.env.REACT_APP_API_URL
+
 const Kategorije = () => {
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
@@ -15,7 +17,7 @@ const Kategorije = () => {
   const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
-    fetch("https://front2.edukacija.online/backend/wp-json/wp/v2/categories")
+    fetch(`${BASE_URL}v2/categories`)
       .then((response) => response.json())
       .then((data) => setCategory(data));
   }, []);
@@ -27,7 +29,7 @@ const Kategorije = () => {
     const per_page = 3;
 
     fetch(
-      `https://front2.edukacija.online/backend/wp-json/wp/v2/posts?categories=${selectedCategory}&per_page=${per_page}&current_page=${currentPage + 1}&_embed`,
+      `${BASE_URL}v2/posts?categories=${selectedCategory}&per_page=${per_page}&current_page=${currentPage + 1}&_embed`,
     )
       .then((response) => {
         const totalPages = response.headers.get("X-WP-TotalPages");

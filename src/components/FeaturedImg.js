@@ -1,6 +1,6 @@
-const FeaturedImg = ({ page, size="full", fallback }) => {
+const FeaturedImg = ({ post, size="full", fallback }) => {
 
-    const selectedImg = page?._embedded["wp:featuredmedia"]?.[0]?.media_details.sizes?.[size].source_url || fallback
+    const selectedImg = post?._embedded["wp:featuredmedia"]?.[0]?.media_details.sizes?.[size].source_url || fallback
 
   return (
     <>
@@ -9,4 +9,4 @@ const FeaturedImg = ({ page, size="full", fallback }) => {
   )
 }
 
-export default FeaturedImg
+export default FeaturedImg;

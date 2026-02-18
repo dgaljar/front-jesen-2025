@@ -14,7 +14,6 @@ const BlogPost = ({ post }) => {
           <img src={image} className="mb-3" alt={post.title.rendered} />
         </Link>
       )}
-
       <Link to={"/blog/" + post.slug}>
         <h2>{post.title.rendered}</h2>
       </Link>
