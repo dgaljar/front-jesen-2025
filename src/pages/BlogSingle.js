@@ -2,6 +2,7 @@ import "./Blog.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
+import Author from "../components/Author";
 
 const BlogSingle = () => {
   const { slug } = useParams();
@@ -37,11 +38,7 @@ const BlogSingle = () => {
               <div class="post-heading">
                 <h1>{post.title.rendered}</h1>
                 <h2 class="subheading"></h2>
-                <span class="meta">
-                  Autor:
-                  <a href="#!">{post._embedded.author[0].name}</a>,{" "}
-                  {new Date(post.date).toLocaleDateString("hr-HR")}
-                </span>
+                <Author post={post} />
               </div>
             </div>
           </div>

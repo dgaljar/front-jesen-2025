@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import './App.css';
+import "./App.css";
 
-import Nav from './components/Nav';
-import Footer from './components/Footer';
-import Naslovnica from './pages/Naslovnica';
-import Blog from './pages/Blog';
-import BlogSingle from './pages/BlogSingle';
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import Naslovnica from "./pages/Naslovnica";
+import Blog from "./pages/Blog";
+import BlogSingle from "./pages/BlogSingle";
 import Onama from "./pages/Onama";
 import Usluge from "./pages/Usluge";
 import Kontakt from "./pages/Kontakt";
@@ -19,7 +19,6 @@ import Tecaj from "./components/zadaci/Tecaj";
 import Kategorije from "./pages/Kategorije";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-
 
 
 function App() {
@@ -44,7 +43,6 @@ function App() {
 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-
 
 
       </Routes>
